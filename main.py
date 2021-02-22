@@ -217,3 +217,8 @@ if character == 8:
 		print(f"You have {playerpoints} points!")
 		print(f"Random has {mypoints} points!")
 		noofrounds += -1
+characters = {1: "Copycat", 2: "Grudger", 3: "Always Cheat", 4: "Always Cooperate", 5: "Detective", 6: "Copykitten", 7: "Simpleton", 8: "Random"}
+if playerpoints > mypoints:
+	print("You have won!")
+if mypoints > playerpoints:
+	print(f"{characters[character]} has one!")
