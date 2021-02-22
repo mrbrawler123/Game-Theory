@@ -220,7 +220,7 @@ if character == 8:
 characters = {1: "Copycat", 2: "Grudger", 3: "Always Cheat", 4: "Always Cooperate", 5: "Detective", 6: "Copykitten", 7: "Simpleton", 8: "Random"}
 time.sleep(2)
 if playerpoints > mypoints:
-	print(f"You have won by {playerpoints - mypoints}!")
+	print(f"You have won by {playerpoints - mypoints} points!")
 if mypoints > playerpoints:
 	print(f"{characters[character]} has won by {mypoints - playerpoints} points!")
 if playerpoints == mypoints:
