@@ -3,20 +3,46 @@ from colorama import Fore
 import random
 print("GAME THEORY")
 time.sleep(2)
-print("In this simulation, you get to play against popular game theory characters. You can either 'Cooperate' or 'Defect'. Type in the serial number to play against a particular character.")
+print(
+    "In this simulation, you get to play against popular game theory characters. You can either 'Cooperate' or 'Defect'. Type in the serial number to play against a particular character."
+)
 time.sleep(1)
-print("Each will get 2 points if both cooperate. If both defect, both earn no points. If one defects and the other cooperates, the one who defects gets 3 points, while the other gets -1 points.")
+print(
+    "Each will get 2 points if both cooperate. If both defect, both earn no points. If one defects and the other cooperates, the one who defects gets 3 points, while the other gets -1 points."
+)
 print("Here are the available characters:")
-print(Fore.BLUE + "1. COPYCAT: Hello! I start with Cooperate, and afterwards, I just copy whatever you did in the last round. Meow")
-print(Fore.YELLOW + "2. GRUDGER: Listen, pardner. I'll start cooperatin', and keep cooperatin', but if y'all ever cheat me, I'LL CHEAT YOU BACK 'TIL THE END OF TARNATION.")
+print(
+    Fore.BLUE +
+    "1. COPYCAT: Hello! I start with Cooperate, and afterwards, I just copy whatever you did in the last round. Meow"
+)
+print(
+    Fore.YELLOW +
+    "2. GRUDGER: Listen, pardner. I'll start cooperatin', and keep cooperatin', but if y'all ever cheat me, I'LL CHEAT YOU BACK 'TIL THE END OF TARNATION."
+)
 print(Fore.WHITE + "3. ALWAYS CHEAT: the strong shall eat the weak")
 print(Fore.MAGENTA + "4. ALWAYS COOPERATE: Let's be best friends! <3")
-print(Fore.GREEN + "5. DETECTIVE: First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate. If you cheat back, I'll act like " + Fore.BLUE + "Copycat" + Fore.GREEN + ". If you never cheat back, I'll act like " + Fore.WHITE + "Always Cheat" + Fore.GREEN + ", to exploit you. Elementary, my dear Watson.")
-print(Fore.CYAN + "6. COPYKITTEN: Hello! I'm like " + Fore.BLUE+ "Copycat" + Fore.CYAN + ", except I Cheat back only after you Cheat me twice in a row. After all, the first one could be a mistake! Purrrrr")
-print(Fore.GREEN + "7. SIMPLETON: hi i try start cooperate. if you cooperate back, i do same thing as last move, even if it mistake. if you cheat back, i do opposite thing as last move, even if it mistake.")
-print(Fore.RED + "8. RANDOM: Monkey robot! Ninja pizza tacos! lol i'm so random (Just plays Cheat or Cooperate randomly with a 50/50 chance)")
+print(
+    Fore.GREEN +
+    "5. DETECTIVE: First: I analyze you. I start: Cooperate, Cheat, Cooperate, Cooperate. If you cheat back, I'll act like "
+    + Fore.BLUE + "Copycat" + Fore.GREEN +
+    ". If you never cheat back, I'll act like " + Fore.WHITE + "Always Cheat" +
+    Fore.GREEN + ", to exploit you. Elementary, my dear Watson.")
+print(
+    Fore.CYAN + "6. COPYKITTEN: Hello! I'm like " + Fore.BLUE + "Copycat" +
+    Fore.CYAN +
+    ", except I Cheat back only after you Cheat me twice in a row. After all, the first one could be a mistake! Purrrrr"
+)
+print(
+    Fore.GREEN +
+    "7. SIMPLETON: hi i try start cooperate. if you cooperate back, i do same thing as last move, even if it mistake. if you cheat back, i do opposite thing as last move, even if it mistake."
+)
+print(
+    Fore.RED +
+    "8. RANDOM: Monkey robot! Ninja pizza tacos! lol i'm so random (Just plays Cheat or Cooperate randomly with a 50/50 chance)"
+)
 options = ["c", "d"]
-orgnoofrounds = int(input(Fore.RESET + "Enter the number of rounds you want to play: "))
+orgnoofrounds = int(
+    input(Fore.RESET + "Enter the number of rounds you want to play: "))
 character = int(input("Enter the serial number of the opposing character: "))
 noofrounds = orgnoofrounds
 playerpoints = 0
@@ -24,15 +50,19 @@ mypoints = 0
 prevpinput = "a"
 allpinputs = []
 prevmychoice = "a"
+
+
 def pointchecker(pchoice, mchoice):
 	if pchoice == "d" and mchoice == "c":
-		return(3, -1)
+		return (3, -1)
 	if pchoice and mchoice == "c":
-		return(2, 2)
+		return (2, 2)
 	if pchoice == "c" and mchoice == "d":
-		return(-1, 3)
+		return (-1, 3)
 	if pchoice and mchoice == "d":
-		return(0, 0)
+		return (0, 0)
+
+
 if character == 1:
 	while noofrounds != 0:
 		if noofrounds == orgnoofrounds:
@@ -123,7 +153,7 @@ if character == 5:
 			pinput = pinput.lower()
 		if noofrounds == orgnoofrounds or noofrounds == orgnoofrounds - 1 or noofrounds == orgnoofrounds - 2 or noofrounds == orgnoofrounds - 3:
 			allpinputs.append(pinput)
-		if noofrounds < orgnoofrounds -3:
+		if noofrounds < orgnoofrounds - 3:
 			if "d" in allpinputs:
 				if noofrounds == orgnoofrounds - 4:
 					mychoice = "c"
@@ -217,11 +247,22 @@ if character == 8:
 		print(f"You have {playerpoints} points!")
 		print(f"Random has {mypoints} points!")
 		noofrounds += -1
-characters = {1: "Copycat", 2: "Grudger", 3: "Always Cheat", 4: "Always Cooperate", 5: "Detective", 6: "Copykitten", 7: "Simpleton", 8: "Random"}
+characters = {
+    1: "Copycat",
+    2: "Grudger",
+    3: "Always Cheat",
+    4: "Always Cooperate",
+    5: "Detective",
+    6: "Copykitten",
+    7: "Simpleton",
+    8: "Random"
+}
 time.sleep(2)
 if playerpoints > mypoints:
 	print(f"You have won by {playerpoints - mypoints} points!")
 if mypoints > playerpoints:
-	print(f"{characters[character]} has won by {mypoints - playerpoints} points!")
+	print(
+	    f"{characters[character]} has won by {mypoints - playerpoints} points!"
+	)
 if playerpoints == mypoints:
 	print("It is a draw!")
